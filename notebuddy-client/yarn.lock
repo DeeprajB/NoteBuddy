@@ -1260,6 +1260,13 @@
   dependencies:
     "@chakra-ui/shared-utils" "2.0.1"
 
+"@chakra-ui/icons@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.0.9.tgz#35edcf9c61b8e158a5d03aeda6bd4e756960dfc7"
+  integrity sha512-6xvV2rC8wATgfnRH+fC9mi0nLcgKjhHKO29lV1pGioVI0yWK0dqc//zjcyBhMMpW5ABnSfig7ujVBf3op/Syzg==
+  dependencies:
+    "@chakra-ui/icon" "3.0.9"
+
 "@chakra-ui/image@2.0.10":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@chakra-ui/image/-/image-2.0.10.tgz#712c0e1c579d959225bd8316d8d8f66cbeb95bb8"
@@ -2047,6 +2054,16 @@
     js-yaml "^4.1.0"
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
+
+"@fontsource/montserrat@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.12.tgz#465c61fb508f6d0055dbcbfbc6eb7307a81fdf6f"
+  integrity sha512-UQ+4ijm1sddIBtmEZ9bKgCB1rSi4Imog0YKz7wDLtMQ3Mw2ZaBseTgoLDfbWnfdowS0PLp+Z4T2KZ/1AySTlDQ==
+
+"@fontsource/quicksand@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/quicksand/-/quicksand-4.5.10.tgz#717db225a61572c82a4860214dc7fe4938c6bc6a"
+  integrity sha512-LnSpCIw6vyn7isDxSO6A2HEU3+v/0Af9o2n1fAf1T3yr/CsyFNeby28u3tEmzKCzserFlp3iKuWvTagu3FJj2Q==
 
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
@@ -8162,7 +8179,7 @@ postcss@^7.0.35:
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.4, postcss@^8.4.7:
+postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.16, postcss@^8.4.4, postcss@^8.4.7:
   version "8.4.16"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.16.tgz#33a1d675fac39941f5f445db0de4db2b6e01d43c"
   integrity sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==
@@ -8180,6 +8197,11 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
+
+prettier@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
+  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"
@@ -9361,7 +9383,7 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-tailwindcss@^3.0.2:
+tailwindcss@^3.0.2, tailwindcss@^3.1.8:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.8.tgz#4f8520550d67a835d32f2f4021580f9fddb7b741"
   integrity sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==
