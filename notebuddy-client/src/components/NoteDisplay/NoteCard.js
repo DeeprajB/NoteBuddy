@@ -1,13 +1,17 @@
 import React from 'react'
 
 import {
-    Box, Heading, Divider, Text, useColorModeValue, Spacer, Flex
+    Box, Heading, Divider, Text, useColorModeValue, Spacer, Flex, useDisclosure
   } from '@chakra-ui/react'
 import {StarIcon} from '@chakra-ui/icons'
 
+import NoteEditorModal from './NoteEditorModal'
+
 function NoteCard() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <Box borderRadius={15} bg={useColorModeValue('lsurface','dsurface')} 
+    <>
+    <Box onClick={onOpen} borderRadius={15} bg={useColorModeValue('lsurface','dsurface')} 
     _hover={{
         cursor: 'pointer'
       }}>
@@ -21,6 +25,8 @@ function NoteCard() {
             <Text className='my-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed facere, voluptatum, voluptas labore placeat voluptate aut, cupiditate maiores ab pariatur sunt dolorem ipsam nisi delectus libero ea molestiae aliquam autem!</Text>
         </Box>
     </Box>
+    <NoteEditorModal isOpen={isOpen} onClose={onClose} />
+    </>
   )
 }
 
