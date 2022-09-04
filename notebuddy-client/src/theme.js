@@ -78,14 +78,6 @@ const fonts = {
 };
 
 const components = {
-  Drawer: {
-    // setup light/dark mode component defaults
-    baseStyle: (props) => ({
-      dialog: {
-        bg: mode('lsurface', 'dsurface')(props)
-      }
-    })
-  },
   Modal: {
     // setup light/dark mode component defaults
     baseStyle: (props) => ({
