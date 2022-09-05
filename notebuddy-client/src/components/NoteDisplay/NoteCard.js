@@ -19,7 +19,7 @@ function NoteCard({id, title, content, pinned, page }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setTimeout(() => dispatch(getNotesAsync(page)), 500);
+    setTimeout(() => dispatch(getNotesAsync(page)), 750);
   }, [dispatch, page, isOpen]);
   return (
     <>

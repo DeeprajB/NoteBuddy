@@ -66,7 +66,7 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd, se
                 background: useColorModeValue("lbg", "dbg"),
                 }}
             />
-            <Input maxLength={13} py={2} px={4} as={EditableInput} focusBorderColor={useColorModeValue('lprimary','dprimary')} />
+            <Input maxLength={25} py={2} px={4} as={EditableInput} focusBorderColor={useColorModeValue('lprimary','dprimary')} />
           </Editable>
           <Spacer />
           <IconButton onClick={handlePinned} colorScheme={pinnedvalue ? 'purple' : 'gray'} className='mt-1 ml-4' aria-label='Pin' icon={<StarIcon />} />
