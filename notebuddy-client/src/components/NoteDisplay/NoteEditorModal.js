@@ -27,9 +27,9 @@ import {
 import {StarIcon} from '@chakra-ui/icons'
 
 import { useDispatch } from "react-redux";
-import { updateNoteAsync, deleteNoteAsync } from "../../redux/slices/noteSlice";
+import { updateNoteAsync, deleteNoteAsync, addNoteAsync } from "../../redux/slices/noteSlice";
 
-function NoteEditorModal({id, title, content, pinned, isOpen, onClose}) {
+function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd}) {
   const dispatch = useDispatch();
   const [titlevalue, setTitleValue] = useState(title);
   const [contentvalue, setContentValue] = useState(content);
@@ -37,8 +37,11 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose}) {
   const handlePinned = () => {
     setPinnedValue(current => !current);
   };
-  const handleSubmit = () => {
+  const handleUpdate = () => {
     dispatch(updateNoteAsync(id,titlevalue,contentvalue,pinnedvalue));
+  };
+  const handleCreate = () => {
+    dispatch(addNoteAsync(titlevalue,contentvalue,pinnedvalue));
   };
   const handleDelete = () => {
     dispatch(deleteNoteAsync(id));
@@ -73,10 +76,10 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose}) {
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='green' onClick={handleSubmit}>
+            <Button colorScheme='green' onClick={isAdd? handleCreate : handleUpdate}>
               Save
             </Button>
-            <Button className='ml-2' colorScheme='red' onClick={handleDelete}>
+            <Button isDisabled={isAdd} className='ml-2' colorScheme='red' onClick={handleDelete}>
               Delete
             </Button>
             <Button className='ml-2' colorScheme='gray' onClick={onClose}>

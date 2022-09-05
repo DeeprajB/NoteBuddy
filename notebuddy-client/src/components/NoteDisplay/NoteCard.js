@@ -26,7 +26,7 @@ function NoteCard({id, title, content, pinned }) {
             <Text className='my-2'>{content}</Text>
         </Box>
     </Box>
-    {isOpen? <NoteEditorModal id={id} title={title} content={content} pinned={pinned} isOpen={isOpen} onClose={onClose} /> : null}
+    {isOpen? <NoteEditorModal id={id} title={title} content={content} pinned={pinned} isOpen={isOpen} onClose={onClose} isAdd={0} /> : null}
     </>
   )
 }
