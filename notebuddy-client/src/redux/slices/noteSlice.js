@@ -16,7 +16,22 @@ export const notesSlice = createSlice({
     },
   });
 
-  export const getNoteAsync = (page) => async (dispatch) => {
+export const addNoteAsync = (title,content,pinned) => async () => {
+    try {
+      const header = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      const note = JSON.stringify({ title: title, content:content, pinned:pinned });
+      const response = await axios.post('https://notebuddy-server.herokuapp.com/create',note,header);
+      console.log(response)
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
+export const getNotesAsync = (page) => async (dispatch) => {
     try {
       const response = await axios.get('https://notebuddy-server.herokuapp.com/getall/'+page);
       dispatch(displayNotes(response.data));
@@ -24,8 +39,33 @@ export const notesSlice = createSlice({
       throw new Error(err);
     }
   };
+
+export const updateNoteAsync = (id,title,content,pinned) => async () => {
+    try {
+      const header = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      const note = JSON.stringify({ title: title, content:content, pinned:pinned });
+      const response = await axios.patch('https://notebuddy-server.herokuapp.com/note/'+id,note,header);
+      console.log(response)
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
+export const deleteNoteAsync = (id) => async () => {
+    try {
+      const response = await axios.delete('https://notebuddy-server.herokuapp.com/note/'+id);
+      console.log(response)
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+
   
   export const { displayNotes } = notesSlice.actions;
-  export const showNote = (state) => state.notes.data;
+  export const showNotes = (state) => state.notes.data;
   export const showPage = (state) => state.notes.totalpage;
   export default notesSlice.reducer;

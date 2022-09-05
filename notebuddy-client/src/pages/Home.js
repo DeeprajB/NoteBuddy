@@ -7,7 +7,7 @@ import NoteCard from '../components/NoteDisplay/NoteCard'
 import { SimpleGrid, Box, useColorModeValue } from '@chakra-ui/react'
 
 import { useSelector, useDispatch } from "react-redux";
-import { getNoteAsync, showNote, showPage } from "../redux/slices/noteSlice";
+import { getNotesAsync, showNotes, showPage } from "../redux/slices/noteSlice";
 
 import {
   Paginator,
@@ -19,7 +19,7 @@ import {
 } from "chakra-paginator";
 
 const  Home = () => {
-  const note = useSelector(showNote);
+  const note = useSelector(showNotes);
   const totalpage = useSelector(showPage);
   const dispatch = useDispatch();
   const pagesQuantity = totalpage[0];
@@ -30,20 +30,21 @@ const  Home = () => {
     setCurrentPage(page);
   };
   useEffect(() => {
-    dispatch(getNoteAsync(currentPage))
+    dispatch(getNotesAsync(currentPage))
   }, [dispatch, currentPage]);
   return (
     <>
     <Navbar />
     <Box className='mt-10 mx-6 md:mx-12 lg:mx-24'>
     <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
-    {note[0] && note[0].notes.map((note) => <NoteCard title={note.title} content={note.content} pinned={note.pinned} />)}
+    {note[0] && note[0].notes.map((note,index) => <NoteCard key={index} id={note.id} title={note.title} content={note.content} pinned={note.pinned} />)}
     </SimpleGrid>
     {/* {console.log(totalpage[0])} */}
     <Paginator
     activeStyles={{
       w: 7,
-      bg: useColorModeValue('lprimary', 'dprimary')
+      bg: useColorModeValue('lprimary', 'dprimary'),
+      color: useColorModeValue('dsecondary','lsecondary')
     }}
     normalStyles={{
       w: 7

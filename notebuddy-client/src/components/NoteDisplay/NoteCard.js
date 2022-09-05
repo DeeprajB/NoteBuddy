@@ -7,7 +7,7 @@ import {StarIcon} from '@chakra-ui/icons'
 
 import NoteEditorModal from './NoteEditorModal'
 
-function NoteCard({ title, content, pinned }) {
+function NoteCard({id, title, content, pinned }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const color = useColorModeValue('lprimary','dprimary')
   return (
@@ -26,7 +26,7 @@ function NoteCard({ title, content, pinned }) {
             <Text className='my-2'>{content}</Text>
         </Box>
     </Box>
-    <NoteEditorModal isOpen={isOpen} onClose={onClose} />
+    {isOpen? <NoteEditorModal id={id} title={title} content={content} pinned={pinned} isOpen={isOpen} onClose={onClose} /> : null}
     </>
   )
 }
