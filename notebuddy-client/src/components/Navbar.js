@@ -23,8 +23,8 @@ function Navbar() {
     className="border-b border-black z-10"
     bg={useColorModeValue('lsurface', 'dsurface')}>
         <Flex>
-        <EditIcon className='my-3 ml-3 mr-2' w={9} h={9}  />
-        <Heading size='md' className='mt-5'>NoteBuddy</Heading>
+        <EditIcon color={useColorModeValue('lprimary','dprimary')} className='my-3 ml-3 mr-2' w={9} h={9}  />
+        <Heading color={useColorModeValue('lprimary','dprimary')} size='md' className='mt-5'>NoteBuddy</Heading>
         <Spacer />
         <DarkModeSwitch />
         <Button className='m-3' onClick={onOpen} color={useColorModeValue('lprimary','dprimary')}>Add Note</Button>
