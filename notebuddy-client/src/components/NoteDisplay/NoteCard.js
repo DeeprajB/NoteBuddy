@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {
     Box, Heading, Divider, useColorModeValue, Spacer, Flex, useDisclosure
@@ -10,9 +10,17 @@ import NoteEditorModal from './NoteEditorModal'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
 
-function NoteCard({id, title, content, pinned }) {
+import { useDispatch } from "react-redux";
+import { getNotesAsync} from "../../redux/slices/noteSlice";
+
+function NoteCard({id, title, content, pinned, page }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const color = useColorModeValue('lprimary','dprimary')
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setTimeout(() => dispatch(getNotesAsync(page)), 500);
+  }, [dispatch, page, isOpen]);
   return (
     <>
     <Box onClick={onOpen} borderRadius={15} bg={useColorModeValue('lsurface','dsurface')} 

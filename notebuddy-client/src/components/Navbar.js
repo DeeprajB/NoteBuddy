@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {
     Box,
@@ -14,8 +14,16 @@ import { EditIcon } from '@chakra-ui/icons';
 import DarkModeSwitch from './DarkModeSwitch'
 import NoteEditorModal from './NoteDisplay/NoteEditorModal';
 
-function Navbar() {
+import { useDispatch } from "react-redux";
+import { getNotesAsync} from "../redux/slices/noteSlice";
+
+function Navbar({page}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setTimeout(() => dispatch(getNotesAsync(page)), 500);
+  }, [dispatch, page, isOpen]);
   return (
     <>
     <Box

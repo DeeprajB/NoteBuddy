@@ -4,10 +4,10 @@ import Navbar from '../components/Navbar'
 
 import NoteCard from '../components/NoteDisplay/NoteCard'
 
-import { SimpleGrid, Box, useColorModeValue } from '@chakra-ui/react'
+import { SimpleGrid, Box, useColorModeValue} from '@chakra-ui/react'
 
 import { useSelector, useDispatch } from "react-redux";
-import { getNotesAsync, showNotes, showPage } from "../redux/slices/noteSlice";
+import { showNotes, showPage, getNotesAsync } from "../redux/slices/noteSlice";
 
 import {
   Paginator,
@@ -34,10 +34,10 @@ const  Home = () => {
   }, [dispatch, currentPage]);
   return (
     <>
-    <Navbar />
+    <Navbar page={currentPage} />
     <Box className='mt-10 mx-6 md:mx-12 lg:mx-24'>
     <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={10}>
-    {note[0] && note[0].notes.map((note,index) => <NoteCard key={index} id={note.id} title={note.title} content={note.content} pinned={note.pinned} />)}
+    {note[0] && note[0].notes.map((note,index) => <NoteCard key={index} id={note.id} title={note.title} content={note.content} pinned={note.pinned} page={currentPage} />)}
     </SimpleGrid>
     {/* {console.log(totalpage[0])} */}
     <Paginator

@@ -29,15 +29,17 @@ export const addNoteAsync = (title,content,pinned,toast) => async () => {
         title: 'Note Succesfully Added.',
         description: "The Note was succesfully added with response "+response.status,
         status: 'success',
-        duration: 9000,
+        position: 'top',
+        duration: 3000,
         isClosable: true,
       })
     } catch (err) {
       toast({
         title: 'Note Failed to Add.',
         description: "Cant submit with empty body.",
+        position: 'top',
         status: 'error',
-        duration: 9000,
+        duration: 3000,
         isClosable: true,
       })
       throw new Error(err);
@@ -66,7 +68,8 @@ export const updateNoteAsync = (id,title,content,pinned,toast) => async () => {
         title: 'Note Succesfully Updated.',
         description: "The Note was succesfully updated with response "+response.status,
         status: 'success',
-        duration: 9000,
+        position: 'top',
+        duration: 3000,
         isClosable: true,
       })
     } catch (err) {
@@ -74,7 +77,8 @@ export const updateNoteAsync = (id,title,content,pinned,toast) => async () => {
         title: 'Note Failed to Update.',
         description: err,
         status: 'error',
-        duration: 9000,
+        position: 'top',
+        duration: 3000,
         isClosable: true,
       })
       throw new Error(err);
@@ -88,7 +92,8 @@ export const deleteNoteAsync = (id,toast) => async () => {
         title: 'Note Succesfully Deleted.',
         description: "The Note was succesfully deleted with response "+response.status,
         status: 'success',
-        duration: 9000,
+        position: 'top',
+        duration: 3000,
         isClosable: true,
       })
     } catch (err) {
@@ -96,7 +101,8 @@ export const deleteNoteAsync = (id,toast) => async () => {
         title: 'Note Failed to Delete.',
         description: err,
         status: 'error',
-        duration: 9000,
+        position: 'top',
+        duration: 3000,
         isClosable: true,
       })
       throw new Error(err);

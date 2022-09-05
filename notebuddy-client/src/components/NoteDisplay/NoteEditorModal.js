@@ -21,29 +21,34 @@ import {
     Flex,
     Heading,
     Divider,
-    Spacer
+    Spacer,
+    useToast
   } from '@chakra-ui/react'
 import {StarIcon} from '@chakra-ui/icons'
 
 import { useDispatch } from "react-redux";
 import { updateNoteAsync, deleteNoteAsync, addNoteAsync } from "../../redux/slices/noteSlice";
 
-function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd}) {
+function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd, setFlag}) {
+  const toast = useToast();
   const dispatch = useDispatch();
   const [titlevalue, setTitleValue] = useState(title);
   const [contentvalue, setContentValue] = useState(content);
   const [pinnedvalue, setPinnedValue] = useState(pinned);
+  
   const handlePinned = () => {
     setPinnedValue(current => !current);
   };
   const handleUpdate = () => {
-    dispatch(updateNoteAsync(id,titlevalue,contentvalue,pinnedvalue));
+    dispatch(updateNoteAsync(id,titlevalue,contentvalue,pinnedvalue,toast));
+    onClose()
   };
   const handleCreate = () => {
-    dispatch(addNoteAsync(titlevalue,contentvalue,pinnedvalue));
+    dispatch(addNoteAsync(titlevalue,contentvalue,pinnedvalue,toast));
+    onClose()
   };
   const handleDelete = () => {
-    dispatch(deleteNoteAsync(id));
+    dispatch(deleteNoteAsync(id,toast));
     onClose()
   };
   return (
