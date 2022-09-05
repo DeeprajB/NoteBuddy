@@ -24,7 +24,7 @@ router.post("/create", async (req, res) => {
 
 router.get("/getall/:pageno", async (req, res) => {
     try {
-        const notes = await (await Note.find().sort( { pinned: -1 } ))
+        const notes = await (await Note.find().sort( { pinned: -1, updatedAt: -1 } ))
         const pageCount = Math.ceil(notes.length / 6);
         let page = req.params.pageno;
         if (!page) { page = 1;}
