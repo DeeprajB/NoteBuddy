@@ -32,9 +32,9 @@ export const fontSizes = {
 };
 
 export const colors = {
-  lbg: '#ffffff',
-  lsurface: '#e2e8f0',
-  lprimary: '#38a169',
+  lbg: '#d3dff6',
+  lsurface: '#ffffff',
+  lprimary: '#805ad5',
   lsecondary: '#000000',
   lerror: '#e53e3e',
   lwarning: '#dd6b20',
@@ -42,7 +42,7 @@ export const colors = {
   lsuccess: '#38a169',
   dbg: '#242627',
   dsurface: '#3E3F43',
-  dprimary: '#9ae6b4',
+  dprimary: '#d6bcfa',
   dsecondary: '#ffffff',
   derror: '#feb2b2',
   dwarning: '#fbd38d',

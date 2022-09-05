@@ -17,7 +17,6 @@ import {
     Editable,
     EditableInput,
     EditablePreview,
-    Tooltip,
     Input,
     Flex,
     Heading,
@@ -49,12 +48,12 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd}) {
   };
   return (
     <Modal isOpen={isOpen} onClose={onClose} size='xl' scrollBehavior='inside' closeOnOverlayClick={false} >
-        <ModalOverlay />
+        <ModalOverlay bg='blackAlpha.300'
+      backdropFilter='blur(10px)' />
         <ModalContent borderRadius={15} className='m-10'>
           <ModalHeader>
             <Flex>
             <Editable as={Heading} value={titlevalue} onChange={setTitleValue} size='xs' placeholder='Title' isPreviewFocusable={true} selectAllOnFocus={false} color={useColorModeValue('lprimary','dprimary')}>
-            <Tooltip label="Click to edit" color={useColorModeValue('dsecondary','lsecondary')} >
             <EditablePreview
                 py={2}
                 px={4}
@@ -62,11 +61,10 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd}) {
                 background: useColorModeValue("lbg", "dbg"),
                 }}
             />
-            </Tooltip>
             <Input py={2} px={4} as={EditableInput} focusBorderColor={useColorModeValue('lprimary','dprimary')} />
           </Editable>
           <Spacer />
-          <IconButton onClick={handlePinned} colorScheme={pinnedvalue ? 'green' : 'gray'} className='mt-2.5' aria-label='Pin' icon={<StarIcon />} />
+          <IconButton onClick={handlePinned} colorScheme={pinnedvalue ? 'purple' : 'gray'} className='mt-1' aria-label='Pin' icon={<StarIcon />} />
           </Flex>
           </ModalHeader>
           <Divider />
@@ -76,7 +74,7 @@ function NoteEditorModal({id, title, content, pinned, isOpen, onClose, isAdd}) {
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme='green' onClick={isAdd? handleCreate : handleUpdate}>
+            <Button colorScheme='purple' onClick={isAdd? handleCreate : handleUpdate}>
               Save
             </Button>
             <Button isDisabled={isAdd} className='ml-2' colorScheme='red' onClick={handleDelete}>

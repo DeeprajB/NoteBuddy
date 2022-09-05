@@ -53,7 +53,7 @@ const  Home = () => {
         currentPage={currentPage}
         onPageChange={handlePageChange}
       >
-        <Container className='mt-5' align="center" justify="space-between" w="full" >
+        <Container className='mt-5 mb-5' align="center" justify="space-between" w="full" >
           <Previous>
             Previous
           </Previous>
