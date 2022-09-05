@@ -6,7 +6,7 @@ export const notesSlice = createSlice({
     name: 'notes',
     initialState: {
         data:[],
-        totalpage: 0
+        totalpage: 0,
     },
     reducers: {
       displayNotes: (state, action) => {
@@ -16,7 +16,7 @@ export const notesSlice = createSlice({
     },
   });
 
-export const addNoteAsync = (title,content,pinned) => async () => {
+export const addNoteAsync = (title,content,pinned,toast) => async () => {
     try {
       const header = {
         headers: {
@@ -25,8 +25,21 @@ export const addNoteAsync = (title,content,pinned) => async () => {
       }
       const note = JSON.stringify({ title: title, content:content, pinned:pinned });
       const response = await axios.post('https://notebuddy-server.herokuapp.com/create',note,header);
-      console.log(response)
+      toast({
+        title: 'Note Succesfully Added.',
+        description: "The Note was succesfully added with response "+response.status,
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (err) {
+      toast({
+        title: 'Note Failed to Add.',
+        description: "Cant submit with empty body.",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
       throw new Error(err);
     }
   };
@@ -40,7 +53,7 @@ export const getNotesAsync = (page) => async (dispatch) => {
     }
   };
 
-export const updateNoteAsync = (id,title,content,pinned) => async () => {
+export const updateNoteAsync = (id,title,content,pinned,toast) => async () => {
     try {
       const header = {
         headers: {
@@ -49,17 +62,43 @@ export const updateNoteAsync = (id,title,content,pinned) => async () => {
       }
       const note = JSON.stringify({ title: title, content:content, pinned:pinned });
       const response = await axios.patch('https://notebuddy-server.herokuapp.com/note/'+id,note,header);
-      console.log(response)
+      toast({
+        title: 'Note Succesfully Updated.',
+        description: "The Note was succesfully updated with response "+response.status,
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (err) {
+      toast({
+        title: 'Note Failed to Update.',
+        description: err,
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
       throw new Error(err);
     }
   };
 
-export const deleteNoteAsync = (id) => async () => {
+export const deleteNoteAsync = (id,toast) => async () => {
     try {
       const response = await axios.delete('https://notebuddy-server.herokuapp.com/note/'+id);
-      console.log(response)
+      toast({
+        title: 'Note Succesfully Deleted.',
+        description: "The Note was succesfully deleted with response "+response.status,
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (err) {
+      toast({
+        title: 'Note Failed to Delete.',
+        description: err,
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
       throw new Error(err);
     }
   };
