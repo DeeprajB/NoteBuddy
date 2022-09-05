@@ -29,7 +29,7 @@ function NoteCard({id, title, content, pinned, page }) {
       }}>
         <Box className='no-scrollbar p-5 overflow-y-scroll' height="34.5vh">
             <Flex>
-            <Heading className='mb-2 mt-1' size='lg' color={useColorModeValue('lprimary','dprimary')}>{title}</Heading>
+            <Heading className='mb-2 mt-1 ml-4' size='lg' color={useColorModeValue('lprimary','dprimary')}>{title}</Heading>
             <Spacer />
             {pinned===true ? <StarIcon color={color} className='mt-2' w={5} h={5} /> : null}
             </Flex>
